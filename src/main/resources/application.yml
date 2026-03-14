@@ -1,4 +1,7 @@
 spring:
+  config:
+    import: optional:file:./.env[.properties]
+
   application:
     name: "skunivProject"
 
@@ -8,13 +11,12 @@ spring:
     username: ${DB_USER}
     password: ${DB_PW}
 
-
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
@@ -41,7 +43,7 @@ spring:
 
 jwt:
   secret: ${JWT_T}
-  expiration-in-seconds: 604800 # 7일 (기존 86400에서 변경)
+  expiration-in-seconds: 604800
 
 crawler:
   base-url: "https://www.thinkcontest.com/thinkgood/user/contest/view.do?querystr="
