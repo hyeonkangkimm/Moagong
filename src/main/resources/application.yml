@@ -22,7 +22,7 @@ spring:
         format_sql: true
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
     producer:
       retries: 3
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -39,7 +39,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://root:root1234@localhost:27017/chatdb?authSource=admin
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://root:root1234@mongodb:27017/chatdb?authSource=admin}
 
 jwt:
   secret: ${JWT_T}
