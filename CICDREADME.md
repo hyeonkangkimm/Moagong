@@ -57,7 +57,9 @@ aws 데이터베이스 탭에서 mysql 선택
 ![img_6.png](image1/img_6.png)
 
 6.rds 생성완료
+
 ![img_7.png](image1/img_7.png)
+
 ---
 
 ## EC2 생성
@@ -87,6 +89,7 @@ kafka를 띄우기 어렵다는 판단하에 c7i-flex.large인스턴스를 사�
 ## EC2 환경 설정
 
 1.EC2환경에 SSH키로 들어가준다.
+
 ![img_14.png](image1/img_14.png)
 
 2.패키지 목록 확인
@@ -95,10 +98,12 @@ kafka를 띄우기 어렵다는 판단하에 c7i-flex.large인스턴스를 사�
 ![img_16.png](image1/img_16.png)
 
 3.깃 install 후 깃 버전 확인
+
 ![img_17.png](image1/img_17.png)
 ![img_18.png](image1/img_18.png)
 
 4.도커실행
+
 ![img_19.png](image2/img_19.png)
 
 5.도커시작
@@ -107,40 +112,52 @@ kafka를 띄우기 어렵다는 판단하에 c7i-flex.large인스턴스를 사�
 ![img_21.png](image2/img_21.png)
 
 6.도커확인
+
 ![img_22.png](image2/img_22.png)
 ![img_23.png](image2/img_23.png)
 
 7.docker-compose 설치
+
 ![img_24.png](image2/img_24.png)
 ![img_25.png](image2/img_25.png)
 
 8.서버 리포지토리 clone
+
 ![img_26.png](image2/img_26.png)
 
 9.클론한 폴더에 들어가 권한 부여
+
 ![img_27.png](image2/img_27.png)
 
 10..env파일 구성
+
 ![img_28.png](image2/img_28.png)
+
 env파일안에 rds를 연결할때에는 rds안에서 데이터베이스를 생성해야함
 
 11.dockerfile 생성
+
 ![img_29.png](image2/img_29.png)
 
 12..dockerignore 생성
+
 ![img_30.png](image2/img_30.png)
 
 13.도커이미지컨테이너로 올림
+
 ![img_31.png](image2/img_31.png)
 
 14.도커실행확인
+
 ![img_32.png](image2/img_32.png)
 
 15.도커에서 실행되고있는 스프링앱 빌드 확인
+
 ![img_34.png](image2/img_34.png)
 mysql , kafka도 같은 명령어로 확인 가능
 
 16.해당퍼블릭아이피로 들어가서 작동 확인
+
 ![img_33.png](image2/img_33.png)
 
 
@@ -157,6 +174,7 @@ mysql , kafka도 같은 명령어로 확인 가능
 - 서버가 무엇을 실행할지 정의
 
 2.배포스크립트 작성
+
 ![img_36.png](image2/img_36.png)
 
 3.Repository → Settings → Secrets and variables → Actions
@@ -178,6 +196,7 @@ main으로 merge하면 재빌드를 해 코드가 제대로 들어가는 것을 
 ## 배포된 환경에서 프로메테우스 그라파나 모니터링 테스트
 
 1.prometheus.yml 생성
+
 ![img_19.png](image1/img_19.png)
 
 2.securityConfig 파일에서 접근 권한 수정
@@ -185,26 +204,33 @@ main으로 merge하면 재빌드를 해 코드가 제대로 들어가는 것을 
 **/actuator/ 허용**
 
 3.gradle 추가
+
 ![img_20.png](image1/img_20.png)
 
 4.application.yml 수정
+
 ![img_21.png](image1/img_21.png)
 
 5.docker-compose.prod.yml 수정
+
 ![img_22.png](image1/img_22.png)
 
 6.인바운드 규칙 편집
+
 ![img_23.png](image1/img_23.png)
 
 7.main git push후 ci/cd
+
 ![img_24.png](image1/img_24.png)
 
 8.프로메테우스 확인
 (퍼블릭 아이피로 들어간 후 상태값 확인)
+
 ![img_25.png](image1/img_25.png)
 정상
 
 9.그라파나 대시보드 확인
+
 ![img_26.png](image1/img_26.png)
 정상
 
