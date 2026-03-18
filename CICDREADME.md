@@ -173,7 +173,39 @@ main으로 merge하면 재빌드를 해 코드가 제대로 들어가는 것을 
 
 **ci/cd 파이프라인 구축 성공**
 
+---
 
+## 배포된 환경에서 프로메테우스 그라파나 모니터링 테스트
 
+1.prometheus.yml 생성
+![img_19.png](image1/img_19.png)
 
+2.securityConfig 파일에서 접근 권한 수정
 
+**/actuator/ 허용**
+
+3.gradle 추가
+![img_20.png](image1/img_20.png)
+
+4.application.yml 수정
+![img_21.png](image1/img_21.png)
+
+5.docker-compose.prod.yml 수정
+![img_22.png](image1/img_22.png)
+
+6.인바운드 규칙 편집
+![img_23.png](image1/img_23.png)
+
+7.main git push후 ci/cd
+![img_24.png](image1/img_24.png)
+
+8.프로메테우스 확인
+(퍼블릭 아이피로 들어간 후 상태값 확인)
+![img_25.png](image1/img_25.png)
+정상
+
+9.그라파나 대시보드 확인
+![img_26.png](image1/img_26.png)
+정상
+
+**이로써 배포 ,ci/cd , 모니터링 환경까지 구축완료**
