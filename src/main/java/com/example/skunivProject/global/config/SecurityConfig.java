@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/login", "/api/signup", "/api/home", "/ws/**", "/actuator/health", "/actuator/info", "/actuator/prometheus").permitAll()
+                        .requestMatchers("/api/login", "/api/signup", "/api/home", "/ws/**", "/actuator/health", "/actuator/**", "/actuator/prometheus").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptions -> exceptions
