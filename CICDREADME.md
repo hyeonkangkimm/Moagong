@@ -21,8 +21,9 @@
 
 기존 로컬환경에서는 환경변수로 했지만 배포환경에서는 .env 파일로 사용
 
-![img.png](image1/img.png)
 1.application.yml에서 .env 파일을 읽도록 수정
+
+![img.png](image1/img.png)
 
 2..env 파일 생성
 
