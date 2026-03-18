@@ -22,6 +22,7 @@ public class ChatController {
     private final ChatRoomService chatRoomService;
     private final ChatMessageService chatMessageService;
 
+    
     /**
      * 팀 채팅방 생성
      */
