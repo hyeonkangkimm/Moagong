@@ -27,5 +27,4 @@ public class UserController {
         ResponseDto.MyAccountDto response = userService.getMyAccount(userDetails.getUsername());
         return ResponseEntity.ok(response);
     }
-    수정파일 1
 }
